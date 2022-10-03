@@ -12,7 +12,8 @@ interacting with the Ballot.sol contract through Deployment.ts scripts.
 - Jose
 
 
--- **Jesus** --
+## Jesus
+
 ### First function execution -> `giveRightToVote( )`
 
 Deployed the contract to Goerli test net making my Metamask wallet account `0x470034EB47FDb4890364C23eaA16208BC5208666` the 
@@ -45,7 +46,7 @@ from: `0x470034EB47FDb4890364C23eaA16208BC5208666`
 blockHash: `0xa52fac75e2ea405702dddb674d05fdb9bf23c559516de4d9e33be512c2727c83`
 txHash: `0x6b01e6e26686b5a0ec98360d3fac4b0f022ae75698537a318188752db8ccfa0b`
 ```
--- **Adrian** --
+## Adrian
 
 ### First function execution -> `giveRightToVote( )`
 

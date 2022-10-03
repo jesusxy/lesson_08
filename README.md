@@ -88,7 +88,7 @@ This is the winning proposal:  { Proposal: 1 }
 
 ## Micah
 
-## First Function Call -> `winnerName( )`
+### First Function Call -> `winnerName( )`
 
 I wrote a function to query the winnerName( ). It was a simple 2 line call. Excpected result was the Goerli ETH address of the election winner.
 
@@ -101,7 +101,7 @@ Using wallet address: 0x86Cb26557E3424358CF1F73C35aA6D82bae2749C
 }
 ```
 
-# Second Function Call -> `giveRightToVote( )`
+### Second Function Call -> `giveRightToVote( )`
 As all function had now been called at least one already, I arbitrarily chose 'giveRightToVote( )' as the second call. I was expecting to see the boolean changed to true. It executed properly and did in fact change to true.
 
 ```
@@ -113,14 +113,14 @@ transactionHash: '0x277f5e98339c99f6fbbea6d71894ae44c245441e8fc9a2442511f0c84b74
 
 ## Arjun
 
-### First function call -> giveRightToVote()
+### First function call -> `giveRightToVote()`
 
 Used the giveRightToVote from the Chairperson address to give right to vote to two addresses - Other_delegate_address & New_delegate_address
 
 The first function call went through -- Tx Hash: 0x1f0c44ad5cb199aff4372503bb035c841453b07c1be108112b863a9ef1474a51
 The second function call didn't go through because of an Error -- VoidSigner cannot sign transactions
 
-### Second function call -> vote()
+### Second function call -> `vote()`
 
 Connected to the other_delegate_address by using .connect(OTHER_DELEGATE_ADDRESS) but got the same error -- VoidSigner cannot sign transactions
 

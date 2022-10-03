@@ -32,36 +32,36 @@ async function main() {
 
     // JESUS'S CODE
     // give right to vote
-    // const rightToVote = await ballotContract.giveRightToVote(testAddr);
-    // const rightToVoteReceipt = await rightToVote.wait();
-    // console.log('Give Right to Vote Receipt: ', {rightToVoteReceipt});
-    // const voterStructAddr1 = await ballotContract.voters(testAddr);
-    // console.log('Voter struct Test Addr: ', voterStructAddr1.weight.toString());
+    const rightToVote = await ballotContract.giveRightToVote(testAddr);
+    const rightToVoteReceipt = await rightToVote.wait();
+    console.log('Give Right to Vote Receipt: ', {rightToVoteReceipt});
+    const voterStructAddr1 = await ballotContract.voters(testAddr);
+    console.log('Voter struct Test Addr: ', voterStructAddr1.weight.toString());
 
-    // // cast a vote to proposal 0
-    // const castVoteTx = await ballotContract.vote(0);
-    // const castVoteTxReceipt = await castVoteTx.wait();
-    // console.log('___ Cast Vote Receipt ____', {castVoteTxReceipt});
-    // // voter struct testAddr
-    // const voterStructAddr2 = await ballotContract.voters(signer.address);
-    // console.log('Voter struct Test Addr: ', {voterStructAddr2});
+    // cast a vote to proposal 0
+    const castVoteTx = await ballotContract.vote(0);
+    const castVoteTxReceipt = await castVoteTx.wait();
+    console.log('___ Cast Vote Receipt ____', {castVoteTxReceipt});
+    // voter struct testAddr
+    const voterStructAddr2 = await ballotContract.voters(signer.address);
+    console.log('Voter struct Test Addr: ', {voterStructAddr2});
 
     ////////////////////////////////////////////////////////////////
     
     // // ADRIAN'S CODE
-    // let voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);
-    // console.log({voterStructForDelegate});
+    let voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);
+    console.log({voterStructForDelegate});
 
-    // const giveRightToVoteTxAdrian = await ballotContract.giveRightToVote(DELEGATE_ADDRESS);
-    // const giveRightToVoteTxAdrianReceipt = await giveRightToVoteTxAdrian.wait();
-    // console.log({giveRightToVoteTxAdrianReceipt});
+    const giveRightToVoteTxAdrian = await ballotContract.giveRightToVote(DELEGATE_ADDRESS);
+    const giveRightToVoteTxAdrianReceipt = await giveRightToVoteTxAdrian.wait();
+    console.log({giveRightToVoteTxAdrianReceipt});
 
-    // const delegateVoteTx = await ballotContract.delegate(DELEGATE_ADDRESS);
-    // const delegateVoteTxReceipt = await delegateVoteTx.wait();
-    // console.log({delegateVoteTxReceipt});
+    const delegateVoteTx = await ballotContract.delegate(DELEGATE_ADDRESS);
+    const delegateVoteTxReceipt = await delegateVoteTx.wait();
+    console.log({delegateVoteTxReceipt});
 
-    // voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);
-    // console.log({voterStructForDelegate});
+    voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);
+    console.log({voterStructForDelegate});
     
     /////////////////////////////////////////////////////////////////
 

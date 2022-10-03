@@ -12,15 +12,16 @@ interacting with the Ballot.sol contract through Deployment.ts scripts.
 - Jose
 
 
--- **Jesus** --
+## Jesus
+
 ### First function execution -> `giveRightToVote( )`
 
 Deployed the contract to Goerli test net making my Metamask wallet account `0x470034EB47FDb4890364C23eaA16208BC5208666` the 
 chairperson. I then added some code to give right to vote to another test MM wallet -> `0xfF3FAB6F41F4681bCcf05f016fa3f908C7e6ac0d`
 
-Before calling the function I logged the `weight` value of this Address which was `0`. After calling `giveRightToVote` this value should change to `1`.
+Before calling the function I logged the `weight` value of this Address which was `0`. After calling `giveRightToVote` voter.weight was now `1`.
 
-Below is a poriton of the the transaction receipt that was logged to the console.
+Below is a portion of the the transaction receipt that was logged to the console.
 
 ###### rightToVoteTxReceipt
 ```
@@ -34,9 +35,9 @@ After calling giveRightToVote the weight in Voter struct for address `0xca06eF3a
 
 ### Second function execution -> `vote( )`
 
-Added code to Deployment scripts to cast a vote to proposal 0. 
-Account that was msg.sender -> `0x470034EB47FDb4890364C23eaA16208BC5208666`
-In the voter struct that was looged to console, the `voted` boolean attribute was set to `true`
+Casted a vote to the first proposal in `PROPOSALS` array by calling vote() on ballot contract and passing `0` as an argument.
+msg.sender -> `0x470034EB47FDb4890364C23eaA16208BC5208666`
+This was executed successfully. Logged Voter struct to the console and `voted` boolean attribute was set to `true` for this address.
 
 ###### tx receipt
 ```
@@ -45,7 +46,7 @@ from: `0x470034EB47FDb4890364C23eaA16208BC5208666`
 blockHash: `0xa52fac75e2ea405702dddb674d05fdb9bf23c559516de4d9e33be512c2727c83`
 txHash: `0x6b01e6e26686b5a0ec98360d3fac4b0f022ae75698537a318188752db8ccfa0b`
 ```
--- **Adrian** --
+## Adrian
 
 ### First function execution -> `giveRightToVote( )`
 

@@ -23,6 +23,7 @@ async function main() {
     const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
     await ballotContract.deployed();
 
+    // JESUS'S CODE
     // give right to vote
     const rightToVote = await ballotContract.giveRightToVote(testAddr);
     const rightToVoteReceipt = await rightToVote.wait();
@@ -37,6 +38,8 @@ async function main() {
     // voter struct testAddr
     const voterStructAddr2 = await ballotContract.voters(signer.address);
     console.log('Voter struct Test Addr: ', {voterStructAddr2});
+
+    ////////////////////////////////////////////////////////////////
     
     // ADRIAN'S CODE
     let voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);

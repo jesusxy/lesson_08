@@ -85,3 +85,28 @@ I decided to query the winningProposal function to know what proposal is ahead o
 This is the winning proposal:  { Proposal: 1 }
 *---------------------------------------------------*
 ```
+
+## Micah
+
+## First Function Call -> `winnerName( )`
+
+I wrote a function to query the winnerName( ). It was a simple 2 line call. Excpected result was the Goerli ETH address of the election winner.
+
+### Output
+```
+Using wallet address: 0x86Cb26557E3424358CF1F73C35aA6D82bae2749C
+
+{
+  voterStructForWinner: '0x50726f706f73616c203100000000000000000000000000000000000000000000'
+}
+```
+
+# Second Function Call -> `giveRightToVote( )`
+As all function had now been called at least one already, I arbitrarily chose 'giveRightToVote( )' as the second call. I was expecting to see the boolean changed to true. It executed properly and did in fact change to true.
+
+```
+to: '0xE173b8047B2A47f0326ba9833dd79C8420148D1d',
+from: '0x86Cb26557E3424358CF1F73C35aA6D82bae2749C',
+blockHash: '0x7c1ca8705087a4072f5219b7202079ef4eb9f2da75f2d36995ad6ecdca5a7ad4',
+transactionHash: '0x277f5e98339c99f6fbbea6d71894ae44c245441e8fc9a2442511f0c84b748f56',
+```

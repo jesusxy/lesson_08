@@ -14,16 +14,20 @@ function convertStringArrayToBytes32(array: string[]) {
   }
 
 async function main() {
-    const provider = ethers.getDefaultProvider("goerli");
+  const options = {
+    alchemy: process.env.ALCHEMY_API_KEY,
+    infura: process.env.INFURA_API_KEY
+  }
+  const provider = ethers.getDefaultProvider("goerli", options);
 
-    const wallet = ethers.Wallet.createRandom();
+    const wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC ?? "");
     console.log(`Using wallet address: ${wallet.address}`);
     const signer = wallet.connect(provider);
     const balanceBN = await signer.getBalance();
     const balance = Number(ethers.utils.formatEther(balanceBN));
     console.log(`Wallet balance is: ${balance}`);
 
-    const ballotFactory = new Ballot__factory();
+    const ballotFactory = new Ballot__factory(signer);
     const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
     await ballotContract.deployed();
 

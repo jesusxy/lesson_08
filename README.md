@@ -8,7 +8,7 @@ interacting with the Ballot.sol contract through Deployment.ts scripts.
 - Adrian Sandoval
 - Jesus Chavez
 - Arjun Mukherjee
-- Micah
+- Micah Bly
 - Jose Marvn Henriquez
 
 

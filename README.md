@@ -9,7 +9,7 @@ interacting with the Ballot.sol contract through Deployment.ts scripts.
 - Jesus Chavez
 - Arjun Mukherjee
 - Micah
-- Jose
+- Jose Marvn Henriquez
 
 
 ## Jesus
@@ -72,4 +72,16 @@ from: '0xaDD95228501c0769b1047975faf93FC798C4E76C',
 blockHash: '0x461fbb993bfe08023982489d0e2a03ca3d22e7f0299359bd51a0e6dbd7e9251b',
 transactionHash: '0xf1dd56d8cfe58c088bd3b63f2b90c4240ffc171ea5fa8b4e482cb2477e9152e2'
 ```
+## Jose
 
+### First function call -> `winningProposal()`
+
+I decided to query the winningProposal function to know what proposal is ahead of the rest. To receive a more readable and human understandable result, I converted the original result `(BigNumber { _hex: '0x00', _isBigNumber: true })` to number, and then added up 1 to the result to match the proposal number.
+
+###### Return value in console of winningProposal() function call:
+```
+*---------------------------------------------------*
+{ WinningProposal: BigNumber { _hex: '0x00', _isBigNumber: true } }
+This is the winning proposal:  { Proposal: 1 }
+*---------------------------------------------------*
+```

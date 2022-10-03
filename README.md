@@ -3,6 +3,15 @@
 This README file holds all the reports with each function execution, transaction hash, or the revert reason, when 
 interacting with the Ballot.sol contract through Deployment.ts scripts.
 
+**Group Members:**
+
+- Adrian Sandoval
+- Jesus Chavez
+- Arjun Mukherjee
+- Micah
+- Jose
+
+
 -- **Jesus** --
 #### giveRightToVote( )
 Deployed the contract to Goerli test net making my Metamask wallet account `0x470034EB47FDb4890364C23eaA16208BC5208666` the 

@@ -16,10 +16,7 @@ function convertStringArrayToBytes32(array: string[]) {
 
 async function main() {
     const signer = await initWallet();
-    const balanceBN = await signer.getBalance();
-    const balance = Number(ethers.utils.formatEther(balanceBN));
-    console.log(`Wallet balance is: ${balance}`);
-
+    
     const ballotFactory = new Ballot__factory(signer);
     const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
     await ballotContract.deployed();

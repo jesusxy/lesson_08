@@ -18,7 +18,7 @@ interacting with the Ballot.sol contract through Deployment.ts scripts.
 Deployed the contract to Goerli test net making my Metamask wallet account `0x470034EB47FDb4890364C23eaA16208BC5208666` the 
 chairperson. I then added some code to give right to vote to another test MM wallet -> `0xfF3FAB6F41F4681bCcf05f016fa3f908C7e6ac0d`
 
-Before calling the function I logged the `weight` value of this Address which was `0`. After calling `giveRightToVote` this value should change to `1`.
+Before calling the function I logged the `weight` value of this Address which was `0`. After calling `giveRightToVote` voter.weight was now `1`.
 
 Below is a poriton of the the transaction receipt that was logged to the console.
 
@@ -34,9 +34,9 @@ After calling giveRightToVote the weight in Voter struct for address `0xca06eF3a
 
 ### Second function execution -> `vote( )`
 
-Added code to Deployment scripts to cast a vote to proposal 0. 
-Account that was msg.sender -> `0x470034EB47FDb4890364C23eaA16208BC5208666`
-In the voter struct that was looged to console, the `voted` boolean attribute was set to `true`
+Casted a vote to the first proposal in the `PROPOSALS` array by calling vote() on ballot contract and passing `0` as an argument.
+msg.sender -> `0x470034EB47FDb4890364C23eaA16208BC5208666`
+This executed successfully. Logged Voter struct to the console. `voted` boolean attribute was set to `true` for this address.
 
 ###### tx receipt
 ```

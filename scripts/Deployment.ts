@@ -43,8 +43,8 @@ async function main() {
     console.log({voterStructForDelegate});
 
     const giveRightToVoteTxAdrian = await ballotContract.giveRightToVote(DELEGATE_ADDRESS);
-    const giveRightToVoteTxAdrianReceipt = await giveRightToVoteTx.wait();
-    console.log({giveRightToVoteTxReceipt});
+    const giveRightToVoteTxAdrianReceipt = await giveRightToVoteTxAdrian.wait();
+    console.log({giveRightToVoteTxAdrianReceipt});
 
     const delegateVoteTx = await ballotContract.delegate(DELEGATE_ADDRESS);
     const delegateVoteTxReceipt = await delegateVoteTx.wait();
@@ -53,8 +53,9 @@ async function main() {
     voterStructForDelegate = await ballotContract.voters(DELEGATE_ADDRESS);
     console.log({voterStructForDelegate});
     
-    
-    
+    //Query Winner's Data - Micah's Code
+    let voterStructForWinner = await ballotContract.winnerName();
+    console.log({voterStructForWinner});    
 }
 
 async function initWallet() {

@@ -110,3 +110,18 @@ from: '0x86Cb26557E3424358CF1F73C35aA6D82bae2749C',
 blockHash: '0x7c1ca8705087a4072f5219b7202079ef4eb9f2da75f2d36995ad6ecdca5a7ad4',
 transactionHash: '0x277f5e98339c99f6fbbea6d71894ae44c245441e8fc9a2442511f0c84b748f56',
 ```
+
+## Arjun
+
+### First function call -> giveRightToVote()
+
+Used the giveRightToVote from the Chairperson address to give right to vote to two addresses - Other_delegate_address & New_delegate_address
+
+The first function call went through -- Tx Hash: 0x1f0c44ad5cb199aff4372503bb035c841453b07c1be108112b863a9ef1474a51
+The second function call didn't go through because of an Error -- VoidSigner cannot sign transactions
+
+### Second function call -> vote()
+
+Connected to the other_delegate_address by using .connect(OTHER_DELEGATE_ADDRESS) but got the same error -- VoidSigner cannot sign transactions
+
+Used the chairperson address to vote for Proposal2 -- TxHash: 0x5c641bd9f58bc8b52b91c33d0543a750d1f03f430368fa48aea7bbcb21f3befe

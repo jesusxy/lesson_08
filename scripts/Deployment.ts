@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
-const testAddr = "0xfF3FAB6F41F4681bCcf05f016fa3f908C7e6ac0d"
+const testAddr = "0xca06eF3aE1E9902A1d5a234c84B5b98b72D22ceA"
 
 function convertStringArrayToBytes32(array: string[]) {
     const bytes32Array = [];
@@ -16,7 +16,7 @@ function convertStringArrayToBytes32(array: string[]) {
 
 async function main() {
     const signer = await initWallet();
-    
+
     const ballotFactory = new Ballot__factory(signer);
     const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
     await ballotContract.deployed();
@@ -25,48 +25,17 @@ async function main() {
     const rightToVote = await ballotContract.giveRightToVote(testAddr);
     const rightToVoteReceipt = await rightToVote.wait();
     console.log('Give Right to Vote Receipt: ', {rightToVoteReceipt});
+    const voterStructAddr1 = await ballotContract.voters(testAddr);
+    console.log('Voter struct Test Addr: ', voterStructAddr1.weight.toString());
 
-    // const accounts = await ethers.getSigners();
-    // console.log("Deploying Ballot contract");
-    // console.log("Proposals: ");
-    // PROPOSALS.forEach((proposal, index) => {
-    //     console.log(`Proposal No: ${index + 1}: ${proposal}`);
-    // });
-    // const ballotFactory = await ethers.getContractFactory("Ballot");
-    // const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
-    // await ballotContract.deployed();
-    // console.log(`Ballot contract was deployed to the address: ${ballotContract.address}`);
-
-    // for(let index= 0; index < PROPOSALS.length; index++){
-    //     const proposal = await ballotContract.proposals(index);
-    //     const name = ethers.utils.parseBytes32String(proposal.name);
-    //     console.log({ index, name, proposal });
-    // }
-
-    // const chairperson = await ballotContract.chairperson();
-    // console.log('Chairperson: ', {chairperson});
-    // console.log('Accounts: ', {accounts0: accounts[0].address, accounts1: accounts[1].address});
-
-    // let voterStructAddr1 = await ballotContract.voters(accounts[1].address);
-    // console.log('Voter Struct Acc 1: ', {voterStructAddr1});
-
-    // const giveRightToVote = await ballotContract.giveRightToVote(accounts[1].address);
-    // const giveRightToVoteTxReceipt = await giveRightToVote.wait();
-    // console.log('Give Right to Vote Receipt: ', {giveRightToVoteTxReceipt});
-    // voterStructAddr1 = await ballotContract.voters(accounts[1].address);
-    // console.log('Voter Struct Acc 1: ', {voterStructAddr1});
-
-    // console.log('_____ Casting vote to a proposal 0 using Account 1 _____')
-    // const castVoteTx = await ballotContract.connect(accounts[1]).vote(0);
-    // const castVoteTxReceipt = await castVoteTx.wait();
-    // console.log('____ Cast Vote Reeipt: ', {castVoteTxReceipt});
-
-    // const proposal0 = await ballotContract.proposals(0);
-    // const name = ethers.utils.parseBytes32String(proposal0.name);
-    // console.log({ index: 0, name, proposal0 });
-    // voterStructAddr1 = await ballotContract.voters(accounts[1].address);
-    // console.log('Voter Struct Acc 1: ', {voterStructAddr1});
-
+    // cast a vote to proposal 0
+    const castVoteTx = await ballotContract.vote(0);
+    const castVoteTxReceipt = await castVoteTx.wait();
+    console.log('___ Cast Vote Receipt ____', {castVoteTxReceipt});
+    // voter struct testAddr
+    const voterStructAddr2 = await ballotContract.voters(signer.address);
+    console.log('Voter struct Test Addr: ', {voterStructAddr2});
+    
 }
 
 async function initWallet() {

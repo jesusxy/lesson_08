@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
+const testAddr = "0xfF3FAB6F41F4681bCcf05f016fa3f908C7e6ac0d"
 
 function convertStringArrayToBytes32(array: string[]) {
     const bytes32Array = [];
@@ -22,6 +23,11 @@ async function main() {
     const ballotFactory = new Ballot__factory(signer);
     const ballotContract = await ballotFactory.deploy(convertStringArrayToBytes32(PROPOSALS));
     await ballotContract.deployed();
+
+    // give right to vote
+    const rightToVote = await ballotContract.giveRightToVote(testAddr);
+    const rightToVoteReceipt = await rightToVote.wait();
+    console.log('Give Right to Vote Receipt: ', {rightToVoteReceipt});
 
     // const accounts = await ethers.getSigners();
     // console.log("Deploying Ballot contract");

@@ -14,15 +14,7 @@ function convertStringArrayToBytes32(array: string[]) {
   }
 
 async function main() {
-  const options = {
-    alchemy: process.env.ALCHEMY_API_KEY,
-    infura: process.env.INFURA_API_KEY
-  }
-  const provider = ethers.getDefaultProvider("goerli", options);
-
-    const wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC ?? "");
-    console.log(`Using wallet address: ${wallet.address}`);
-    const signer = wallet.connect(provider);
+    const signer = await initWallet();
     const balanceBN = await signer.getBalance();
     const balance = Number(ethers.utils.formatEther(balanceBN));
     console.log(`Wallet balance is: ${balance}`);
@@ -72,6 +64,20 @@ async function main() {
     // voterStructAddr1 = await ballotContract.voters(accounts[1].address);
     // console.log('Voter Struct Acc 1: ', {voterStructAddr1});
 
+}
+
+async function initWallet() {
+    const options = {
+      alchemy: process.env.ALCHEMY_API_KEY,
+      infura: process.env.INFURA_API_KEY
+    }
+    const provider = ethers.getDefaultProvider("goerli", options);
+
+    const wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC ?? "");
+    console.log(`Using wallet address: ${wallet.address}`);
+    const signer = wallet.connect(provider);
+
+    return signer;
 }
 
 main().catch((err) => {

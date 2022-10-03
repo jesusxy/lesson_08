@@ -45,3 +45,30 @@ from: `0x470034EB47FDb4890364C23eaA16208BC5208666`
 blockHash: `0xa52fac75e2ea405702dddb674d05fdb9bf23c559516de4d9e33be512c2727c83`
 txHash: `0x6b01e6e26686b5a0ec98360d3fac4b0f022ae75698537a318188752db8ccfa0b`
 ```
+-- **Adrian** --
+
+### First function execution -> `giveRightToVote( )`
+
+Gave the account that I will later delegate my vote to the right to vote. The function succesfully executed. 
+
+I logged the voter struct of both the chairman and the delegate, and noted that the delegates weight increased when given the right to vote. 
+
+###### rightToVoteTxReceipt
+```
+to: '0x3C2DbE9132ADD8D41ef9746B99eBae0220E80644',
+from: '0xaDD95228501c0769b1047975faf93FC798C4E76C',
+blockHash: '0xe310d44d7472d33423b18bea9dc6662006e6e22f49c10bd40e49b7ea20124424',
+transactionHash: '0x26a97f658ccf8716da3fda0591db94e3ef63c4e7a306c3e19a117629e9827865'
+```
+### Second function execution -> `delegate( )`
+
+After giving the secondary address the right to vote, I delegated my vote to that address. The function ran succesfully, and after logging the delegated accounts struct, I noticed that their weight was now 2 instead of one, but they had yet to vote. I also logged the chairperson's struct and noticed that thir hasVoted boolean was now set to true. 
+
+###### tx receipt
+```
+to: '0x3C2DbE9132ADD8D41ef9746B99eBae0220E80644',
+from: '0xaDD95228501c0769b1047975faf93FC798C4E76C',
+blockHash: '0x461fbb993bfe08023982489d0e2a03ca3d22e7f0299359bd51a0e6dbd7e9251b',
+transactionHash: '0xf1dd56d8cfe58c088bd3b63f2b90c4240ffc171ea5fa8b4e482cb2477e9152e2'
+```
+
